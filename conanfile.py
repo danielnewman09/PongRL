@@ -22,5 +22,9 @@ class PongRLConan(ConanFile):
             
             if len(dep.cpp_info.libdirs) > 0:
                 installs_dir = _WORKSPACE_ROOT_DIR.joinpath('./installs/')
+                import pdb
+                pdb.set_trace()
                 copy(self, "*",dep.cpp_info.libdirs[0], dst=installs_dir.absolute(),  excludes=('conaninfo*', 'conanmanifest*'))
                 
+        copy(self, "*",self.cpp_info.libdirs[0], dst=installs_dir.absolute(),  excludes=('conaninfo*', 'conanmanifest*'))
+               
